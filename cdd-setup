@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# cdd-setup-script
+#
+# (c) Chris Obbard 2016
+#
+# Custom setup script which is run inside the distro..
+# This script is run as root
+#
+#
+
+# global variables
+assets=/pdktmp/cdd-assets
+username=pi
+homedir=/home/$username
+
+# make local user & change root password
+adduser --disabled-password --gecos "" $username
+echo "$username:raspberry" | chpasswd
+echo "root:root" | chpasswd
+
+# make user a sudoer
+usermod -a -G sudo $username
+
+# make user a audioer
+usermod -a -G audio $username
+
+# autologin
+sed -i "s/^#autologin-user=/autologin-user=$username/" /etc/lightdm/lightdm.conf
+
+# no cursor
+sed -i "s/^#xserver-command=X/xserver-command=X -nocursor/" /etc/lightdm/lightdm.conf
+
+# add the soundcard module
+echo "dtoverlay=audioinjector-wm8731-audio" >> /boot/config.txt
+echo "dtoverlay=i2s-mmap" >> /boot/config.txt
+
+# set CPUs to no throttling
+sed -i 's/^GOVERNOR=.*/GOVERNOR="performance"/' /etc/init.d/cpufrequtils
+
+# disable bluetooth
+echo "dtoverlay=pi3-disable-bt" >> /boot/config.txt
+systemctl disable hciuart
+
+# copy wallpapers
+wallpaper_folder=$homedir/Pictures/Wallpaper
+mkdir -p $wallpaper_folder
+cp $assets/wallpaper/*.jpg $wallpaper_folder
+
+# Write some default LXDE settings
+mkdir -p $homedir/.config/pcmanfm/LXDE
+mkdir -p $homedir/.config/lxpanel/LXDE/panels
+cp $assets/lxde/desktop-items-0.conf $homedir/.config/pcmanfm/LXDE/desktop-items-0.conf
+cp $assets/lxde/panel $homedir/.config/lxpanel/LXDE/panels/panel
+
+# we have been editing as root!
+chown $username:$username $homedir -R
+
+# purge!
+# todo: figure out a better way to handle this with PDK
+apt-get purge logrotate man-db -Y

@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<channels>
+	<!-- Our Backports -->
+	<backports>
+		<type>dir</type>
+		<path>/home/chris/pdk/projects/pideck/64studio.com/backports/</path>
+		<priority>10</priority>
+	</backports>
+
+	<!-- Upstream Packages -->
+	<jessie>
+		<type>apt-deb</type>
+		<path>http://ftp.uk.debian.org/debian/</path>
+		<archs>armhf source</archs>
+		<dist>jessie</dist>
+		<priority>100</priority>
+		<components>main contrib non-free</components>
+	</jessie>
+	<jessie-updates>
+		<type>apt-deb</type>
+		<path>http://ftp.uk.debian.org/debian/</path>
+		<archs>armhf source</archs>
+		<dist>jessie</dist>
+		<priority>500</priority>
+		<components>main contrib non-free</components>
+	</jessie-updates>
+</channels>
