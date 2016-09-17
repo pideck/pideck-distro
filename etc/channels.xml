@@ -3,7 +3,7 @@
 	<!-- Our Backports -->
 	<backports>
 		<type>dir</type>
-		<path>/home/chris/pdk/projects/pideck/64studio.com/backports/</path>
+		<path>64studio.com/backports/</path>
 		<priority>10</priority>
 	</backports>
 
