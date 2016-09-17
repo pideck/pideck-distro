@@ -14,6 +14,9 @@ assets=/pdktmp/cdd-assets
 username=pi
 homedir=/home/$username
 
+# remove linux kernel text at bootup
+echo "dwc_otg.lpm_enable=0 console=ttyAMA0,115200 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait logo.nologo" > /boot/cmdline.txt
+
 # make local user & change root password
 adduser --disabled-password --gecos "" $username
 echo "$username:raspberry" | chpasswd
