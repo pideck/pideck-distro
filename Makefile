@@ -54,6 +54,9 @@ checksum:
 	$(eval outdir := $(shell dirname $(filename)))
 	sed -i -e 's|$(outdir)/||g' $(filename).sha256sum
 
+log:
+	pdk log > images/$(project)-$(version).changelog
+
 # this probably doesn't belong here but i'm lazy
 flash:
 	sudo dd bs=4M of=/dev/sdb if=images/$(project)-$(version).img
@@ -61,5 +64,6 @@ flash:
 
 # nor does this
 upload:
+	scp images/$(project)-$(version).changelog chris@djz.us:/home/chris/www/pideck/distro/
 	scp images/$(project)-$(version).img.sha256sum chris@djz.us:/home/chris/www/pideck/distro/
 	scp images/$(project)-$(version).img.zip chris@djz.us:/home/chris/www/pideck/distro/
