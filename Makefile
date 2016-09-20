@@ -1,5 +1,5 @@
 project	= pideck
-version	= alpha_14sept
+version	= alpha_20sept
 arch	= armhf
 suite	= jessie
 source	= 64studio.com
@@ -19,7 +19,6 @@ components=\
 	$(source)/lxde.xml		\
 	$(source)/lightdm.xml		\
 	$(source)/lxterminal.xml	\
-	$(source)/iceweasel.xml		\
 	$(source)/alsa.xml		\
 	$(source)/alsamixergui.xml	\
 	$(source)/jackd2.xml		\
