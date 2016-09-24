@@ -34,6 +34,9 @@ sed -i "s/^#autologin-user=/autologin-user=$username/" /etc/lightdm/lightdm.conf
 # no cursor
 sed -i "s/^#xserver-command=X/xserver-command=X -nocursor/" /etc/lightdm/lightdm.conf
 
+# remove the rainbow splash screen at bootup
+echo "disable_splash=1" >> /boot/config.txt
+
 # add the soundcard module
 echo "dtoverlay=audioinjector-wm8731-audio" >> /boot/config.txt
 echo "dtoverlay=i2s-mmap" >> /boot/config.txt
