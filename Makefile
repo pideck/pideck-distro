@@ -11,7 +11,7 @@ clean:
 closure:
 	pdk abstract --arch=armhf --packages="$(distro_pkgs)" pideck-closure.xml
 	pdk resolve pideck-closure.xml
-	pdk --out-file=pideck-closure.xml --arch=armhf pideck.xml pideck-closure.xml
+	pdk closure --out-file=pideck-closure.xml --arch=armhf pideck.xml pideck-closure.xml
 
 
 .PHONY: image
