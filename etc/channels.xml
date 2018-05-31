@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<channels>
+  <!-- 64 Studio PDK Components -->
+  <components>
+    <type>source</type>
+    <path>http://pdk.64studio.net/channels/debian/testing/</path>
+  </components>
+
+  <!-- Local Debs -->
+  <local>
+    <type>dir</type>
+    <path>debs/</path>
+    <priority>10</priority>
+  </local>
+
+  <!-- Upstream Packages -->
+  <testing>
+    <type>apt-deb</type>
+    <path>http://ftp.uk.debian.org/debian/</path>
+    <archs>armhf source</archs>
+    <dist>testing</dist>
+    <priority>100</priority>
+    <components>main contrib non-free</components>
+  </testing>
+  <testing-updates>
+    <type>apt-deb</type>
+    <path>http://ftp.uk.debian.org/debian/</path>
+    <archs>armhf source</archs>
+    <dist>testing-updates</dist>
+    <priority>500</priority>
+    <components>main contrib non-free</components>
+  </testing-updates>
+</channels>

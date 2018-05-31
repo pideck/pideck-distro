@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+  <id>buster</id>
+  <meta>
+    <mediagen.media>img</mediagen.media>
+    <mediagen.recipe>raspi</mediagen.recipe>
+    <mediagen.debarch>armhf</mediagen.debarch>
+    <mediagen.rootsize>1500</mediagen.rootsize>
+    <mediagen.bootsize>64</mediagen.bootsize>
+    <mediagen.outfile>out.img</mediagen.outfile>
+
+    <mediagen.hostname>pideck</mediagen.hostname>
+    <mediagen.root-password>toor</mediagen.root-password>
+    <mediagen.preseed-conf>preseed.conf</mediagen.preseed-conf>
+    <mediagen.postinst-script>postinst.sh</mediagen.postinst-script>
+
+    <apt-deb.key>apt@64studio.com</apt-deb.key>
+  </meta>
+  <contents>
+    <component>64studio/minimal.xml</component>
+    <component>64studio/standard.xml</component>
+    <component>64studio/openssh-server.xml</component>
+    <component>64studio/linux-image-armhf-raspi.xml</component>
+    <component>64studio/jackd2.xml</component>
+    <component>64studio/xorg.xml</component>
+    <component>64studio/lxde.xml</component>
+    <component>pideck-closure.xml</component>
+  </contents>
+</component>
