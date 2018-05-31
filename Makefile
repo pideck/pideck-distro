@@ -16,5 +16,5 @@ closure:
 
 .PHONY: image
 image:
-	pdk repogen test.xml
-	sudo pdk mediagen test.xml
+	pdk repogen pideck.xml
+	sudo pdk mediagen pideck.xml
