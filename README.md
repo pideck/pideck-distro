@@ -62,6 +62,10 @@ make image
 
 - After some time, you should find the .img file in the tmp/ directory of your PDK workspace
 
-- You can install this image to a microSD card using dd (the status=progress option is helpful), or try [bmap-tools](https://packages.debian.org/search?keywords=bmap-tools).
+- You can copy this image to a microSD card using dd (the status=progress option is helpful):
+
+`sudo dd status=progress bs=4M if=tmp/out.img of=/dev/sdb conv=fsync` 
+
+- Or try [bmap-tools](https://packages.debian.org/search?keywords=bmap-tools) to create checksums for your image and potentially make it easier to deploy
 
 Please see the [PDK project on GitHub](https://github.com/64studio/pdk) for more details of how to use PDK.
