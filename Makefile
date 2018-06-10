@@ -1,20 +1,21 @@
 distro_pkgs=pideck, xwax, usbmount, jackd2, cdparanoia, ffmpeg, mpg123, id3v2, flac, vorbis-tools
 
-all: clean closure image
+all: clean local image
 
 .PHONY: clean
 clean:
-	rm -rf repo/ tmp/ pideck-closure.xml
+	rm -rf repo/ tmp/ local.xml
 
 
-.PHONY: closure
-closure:
-	pdk abstract --arch=armhf --packages="$(distro_pkgs)" pideck-closure.xml
-	pdk resolve pideck-closure.xml
-	pdk closure --out-file=pideck-closure.xml --arch=armhf pideck.xml pideck-closure.xml
+.PHONY: local
+local:
+	pdk abstract --arch=armhf --packages="$(distro_pkgs)" local.xml
+	pdk resolve local.xml
 
 
 .PHONY: image
 image:
+	pdk download pideck.xml
+	pdk closure --out-file=local.xml --arch=armhf pideck.xml local.xml
 	pdk repogen pideck.xml
 	sudo pdk mediagen pideck.xml
