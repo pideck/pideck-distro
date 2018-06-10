@@ -3,7 +3,7 @@
 # TODO: make this quit if run on host machine. oops!
 
 # TODO: install packages elsewhere
-apt-get install rpi-stock-kernel-firmware sudo alsa-utils rt-tests psmisc cpufrequtils console-common fake-hwclock ntp xserver-xorg xserver-xorg-video-fbdev xserver-xorg-input-libinput dbus-x11 policykit-1 lxde-core lightdm lxterminal jackd2 cdparanoia ffmpeg mpg123 id3v2 flac vorbis-tools xwax pideck usbmount whois --yes
+apt-get install rpi-stock-kernel-firmware sudo alsa-utils rt-tests psmisc cpufrequtils console-common fake-hwclock ntp xserver-xorg xserver-xorg-video-fbdev xserver-xorg-input-libinput dbus-x11 policykit-1 lxde-core lightdm lxterminal jackd2 ffmpeg mpg123 id3v2 flac vorbis-tools xwax pideck usbmount whois --yes
 
 # create user
 USERNAME="pi"
