@@ -11,11 +11,11 @@ wget -qO - https://apt.64studio.net/archive-keyring.asc | sudo apt-key add -
 sudo apt update
 sudo apt install pdk pdk-mediagen rng-tools
 ```
-(ignore service failing to start with "Cannot find a hardware RNG device to use.")
+- Ignore the `rng-tools` service failing to start with "Cannot find a hardware RNG device to use." You won't need this to run as a service for now
 
 ## APT Repository key
 
-- Make email apt@your-domain
+- Make the APT repository email apt@your-domain
 - Do not set a passphrase (you will be prompted twice)
 
 ```bash
@@ -51,20 +51,25 @@ make local
 pdk download pideck.xml
 pdk commit -m "A note about my changes"
 ```
-- You only need to download pideck.xml again if you have added packages in your modifications
+- You only need to `pdk download pideck.xml` again if you have added packages in your modifications
 
 ## Build image
 
 ```bash
 make image
 ```
-- This step uses sudo, you will be prompted for your login password
+- This step uses `sudo`, you will be prompted for your login password
 
 - After some time, you should find the .img file in the tmp/ directory of your PDK workspace
 
-- You can copy this image to a microSD card using dd (the status=progress option is helpful):
+- Use the `lsblk` command to identify the device of your microSD card writer before and after plugging it in, such as `/dev/sdb` in the example below. If you get this device wrong, you could wipe your hard disk, so please be careful.
 
-`sudo dd status=progress bs=4M if=tmp/out.img of=/dev/sdb conv=fsync` 
+-  Copy the image you created to a microSD card using the `dd` command (the status=progress option is helpful). After `dd` has completed, use the `sync` command before unplugging:
+
+```bash
+sudo dd status=progress bs=4M if=tmp/out.img of=/dev/sdb conv=fsync
+sync
+``` 
 
 - Or try [bmap-tools](https://packages.debian.org/search?keywords=bmap-tools) to create checksums for your image and potentially make it easier to deploy
 
