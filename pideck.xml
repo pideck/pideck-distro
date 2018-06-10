@@ -24,6 +24,6 @@
     <component>64studio/jackd2.xml</component>
     <component>64studio/xorg.xml</component>
     <component>64studio/lxde.xml</component>
-    <!-- <component>pideck-closure.xml</component> -->
+    <component>local.xml</component>
   </contents>
 </component>
