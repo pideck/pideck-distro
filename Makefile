@@ -1,4 +1,4 @@
-distro_pkgs=pideck, xwax, usbmount, jackd2, cdparanoia, ffmpeg, mpg123, id3v2, flac, vorbis-tools
+distro_pkgs=pideck, xwax, usbmount, jackd2, ffmpeg, mpg123, id3v2, flac, vorbis-tools
 
 all: clean local image
 
