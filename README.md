@@ -16,7 +16,7 @@ sudo apt install pdk pdk-mediagen rng-tools
 ## APT Repository key
 
 - Make the APT repository email apt@your-domain
-- Do not set a passphrase (you will be prompted twice)
+- To enable automated builds later, either do not set a passphrase when you generate the key (less secure), or automate signing with [gpg-preset-passphrase](https://www.gnupg.org/documentation/manuals/gnupg/gpg_002dpreset_002dpassphrase.html) running on each boot. You will be prompted twice for the passphrase, if any.
 
 ```bash
 sudo rngd -r /dev/urandom
