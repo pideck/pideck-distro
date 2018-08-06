@@ -58,9 +58,9 @@ pdk commit -m "A note about my changes"
 ```bash
 make image
 ```
-- This step uses `sudo`, you will be prompted for your login password
+- This step uses `sudo`, you will be prompted for your login password as well as your GnuPG passphrase, if you are using one.
 
-- After some time, you should find the .img file in the tmp/ directory of your PDK workspace
+- After some time, you should find the _out.img_ file in your PDK workspace.
 
 - Use the `lsblk` command to identify the device of your microSD card writer before and after plugging it in, such as `/dev/sdb` in the example below. If you get this device wrong, you could wipe your hard disk, so please be careful.
 
@@ -71,6 +71,6 @@ sudo dd status=progress bs=4M if=tmp/out.img of=/dev/sdb conv=fsync
 sync
 ``` 
 
-- Or try [bmap-tools](https://packages.debian.org/search?keywords=bmap-tools) to create checksums for your image and potentially make it easier to deploy
+- Or try [bmap-tools](https://packages.debian.org/search?keywords=bmap-tools) to create checksums for your image and potentially make it easier to deploy. Your users may prefer using [Etcher](https://etcher.io/) which is a GUI program.
 
 Please see the [PDK project on GitHub](https://github.com/64studio/pdk) for more details of how to use PDK.
