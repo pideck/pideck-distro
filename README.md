@@ -15,7 +15,7 @@ sudo apt install pdk pdk-mediagen rng-tools
 
 ## APT Repository key
 
-- Make the APT repository email apt@your-domain
+- Make the APT repository key email address apt@your-domain where _your-domain_ is the domain used by your project. For example we use _pideck.com_ but you will be serving your own images from somewhere else.
 - To enable automated builds later, either do not set a passphrase when you generate the key (less secure), or automate signing with [gpg-preset-passphrase](https://www.gnupg.org/documentation/manuals/gnupg/gpg_002dpreset_002dpassphrase.html) running on each boot. You will be prompted twice for the passphrase, if any.
 
 ```bash
