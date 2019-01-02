@@ -1,6 +1,8 @@
 # PDK Project for PiDeck Custom Distro
 
-PDK is the Platform Development Kit that we use for creating the [PiDeck](http://pideck.com) distro image, based on Debian GNU/Linux. To download PiDeck, please see the [releases](https://github.com/pideck/pideck-distro/releases) page.
+PDK is the Platform Development Kit that we use for creating the [PiDeck](http://pideck.com) distro image, based on Debian GNU/Linux. Most people will prefer to start with a ready-made image, which you can download from the [releases](https://github.com/pideck/pideck-distro/releases) page.
+
+These build instructions have been tested on Debian only. Ubuntu users may run into [issue #2](https://github.com/pideck/pideck-distro/issues/2) with debootstrap. Pull requests to resolve this or any other issue you might encounter are welcome. 
 
 ## Install PDK
 
