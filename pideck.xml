@@ -20,7 +20,8 @@
     <component>64studio/minimal.xml</component>
     <component>64studio/standard.xml</component>
     <component>64studio/openssh-server.xml</component>
-    <component>64studio/linux-image-armhf-raspi.xml</component>
+    <component>64studio/bootloader-raspberrypi.xml</component>
+    <component>64studio/linux-image-raspberrypi-default.xml</component>
     <component>64studio/jackd2.xml</component>
     <component>64studio/xorg.xml</component>
     <component>64studio/lxde.xml</component>
